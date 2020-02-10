@@ -1,3 +1,18 @@
 body {
   font-family: sans-serif;
+  font-size: 12px;
+}
+
+table {
+  border: 1px solid black;
+}
+
+th {
+  font-size: 14px;
+}
+
+td,
+th {
+  border: 1px solid black;
+  padding: 1em;
 }

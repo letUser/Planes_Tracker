@@ -1,6 +1,9 @@
 import "./styles.css";
-import { list } from "./logic.js";
+import {
+  list
+} from "./logic.js";
 
+/* ШАПКА ТАБЛИЦЫ */
 let headerTable = [
   `Координаты`,
   `Скорость`,
@@ -28,12 +31,14 @@ export default function createTable() {
   div.append(table);
   table.append(tr);
 
+  /* РИСУЕМ ШАПКУ */
   for (let i = 0; i <= headerTable.length - 1; i++) {
     let th = document.createElement("th");
     th.innerHTML = `<p>${headerTable[i]}</p>`;
     tr.append(th);
   }
 
+  /* РИСУЕМ ТАБЛИЦУ */
   for (let plane of list) {
     let tr = document.createElement("tr");
     table.append(tr);

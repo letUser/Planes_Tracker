@@ -1,6 +1,9 @@
 import createTable from "./DOM.js";
 
-const airport = `55.410307°, 37.902451°`; //координаты Домодедово (по условию задачи)
+const airport = {
+  coordX: (55.410307).toFixed(3),
+  coordY: (37.902451).toFixed(3),
+}; //координаты Домодедово (по условию задачи)
 
 export let list = []; //массив объектов
 
@@ -28,8 +31,27 @@ async function getData() {
       route: `${props[11]} → ${props[12]}`,
       flight: `${props[13]}`
     };
-    list.push(plane); //добавляем объекты в массив
+    list.push(plane); //добавляем объект в массив
   }
+
+  list.sort((coordsPlane, b) => {
+    /* СОРТИРОВКА ПО ДЛИНЕ ОРТОДРОМИИ (ЧАСТЬ ФОРМУЛЫ) */
+    coordsPlane = list[0].coord.split(','); //получаем строковое значение координат
+    for (let i = 0; i <= (coordsPlane.length - 1); i++) { //мутируем массив
+      let str = coordsPlane[i].trim().replace(/°/g, ''); //убираем все ° и пробелы
+      coordsPlane.splice(i, 1, +str); //вставляем как число
+    }
+
+    let s = ((Math.sin(airport.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
+      (Math.cos(airport.coordY) * Math.cos(coordsPlane[1])) *
+      Math.cos(coordsPlane[1] - airport.coordY));
+    let r = (s * Math.PI) / 180; //считаем радианы
+    console.log(r);
+
+  });
 
   createTable(); //вызываем создание ДОМа
 }
+
+/* ВЫЗОВ ФЕТЧА ПРИ ЗАГРУЗКЕ СТРАНИЦЫ */
+window.onload = getData;
