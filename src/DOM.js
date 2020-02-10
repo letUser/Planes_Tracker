@@ -2,7 +2,6 @@ import "./styles.css";
 import {
   list
 } from "./logic.js";
-import "./logic.js";
 
 /* ШАПКА ТАБЛИЦЫ */
 let headerTable = [

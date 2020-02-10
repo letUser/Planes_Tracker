@@ -1,3 +1,4 @@
+import "./styles.css";
 import createTable from "./DOM.js";
 
 const airport = {
@@ -29,47 +30,39 @@ async function getData() {
       course: `${props[3]}°`,
       height: `${props[4]} m`,
       route: `${props[11]} → ${props[12]}`,
-      flight: `${props[13]}`
+      flight: `${props[13]}`,
+      distance: 0,
     };
     list.push(plane); //добавляем объект в массив
   }
 
-  list.sort((a, b) => {
-    /* СОРТИРОВКА ПО ДЛИНЕ ОРТОДРОМИИ (ЧАСТЬ ФОРМУЛЫ) */
-    a = () => {
-      let coordsPlane = list[0].coord.split(','); //получаем строковое значение координат
-      for (let i = 0; i <= (coordsPlane.length - 1); i++) { //мутируем массив
-        let str = coordsPlane[i].trim().replace(/°/g, ''); //убираем все ° и пробелы
-        coordsPlane.splice(i, 1, +str); //вставляем как число
-      }
+  distanceCalc(); //считаем дистацию объектов
 
-      let s = ((Math.sin(airport.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
-        (Math.cos(airport.coordY) * Math.cos(coordsPlane[1])) *
-        Math.cos(coordsPlane[1] - airport.coordY));
-      let r = (s * Math.PI) / 180; //считаем радианы
+  console.log(list);
 
-      return r;
-    };
+  /* СОРТИРОВКА ПО ДЛИНЕ ОРТОДРОМИИ (ЧАСТЬ ФОРМУЛЫ) */
 
-    b = () => {
-      let coordsPlane = list[1].coord.split(','); //получаем строковое значение координат
-      for (let i = 0; i <= (coordsPlane.length - 1); i++) { //мутируем массив
-        let str = coordsPlane[i].trim().replace(/°/g, ''); //убираем все ° и пробелы
-        coordsPlane.splice(i, 1, +str); //вставляем как число
-      }
-
-      let s = ((Math.sin(airport.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
-        (Math.cos(airport.coordY) * Math.cos(coordsPlane[1])) *
-        Math.cos(coordsPlane[1] - airport.coordY));
-      let r = (s * Math.PI) / 180; //считаем радианы
-
-      return r;
-    };
-
-    return (b - a);
-  });
+  list.sort((a, b) => a - b);
 
   createTable(); //вызываем создание ДОМа
+}
+
+/* РАСЧЕТ ПО ДЛИНЕ ОРТОДРОМИИ ЧЕРЕЗ МЕРЕДИАНУ */
+let distanceCalc = () => {
+  for (let i = 0; i <= (list.length - 1); i++) {
+    let coordsPlane = list[i].coord.split(','); //получаем строковое значение координат
+    for (let i = 0; i <= (coordsPlane.length - 1); i++) { //мутируем массив
+      let str = coordsPlane[i].trim().replace(/°/g, ''); //убираем все ° и пробелы
+      coordsPlane.splice(i, 1, +str); //вставляем как число
+    }
+
+    let cosS = ((Math.sin(airport.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
+      (Math.cos(airport.coordX) * Math.cos(coordsPlane[0])) *
+      Math.cos(coordsPlane[1] - airport.coordY));
+    let acosS = Math.acos(cosS);
+    let distance = acosS * 111.3; //умножаем на мередиану
+    list[i].distance = +distance.toFixed(2); //добавляем в объект текущую дистанцию
+  }
 }
 
 /* ВЫЗОВ ФЕТЧА ПРИ ЗАГРУЗКЕ СТРАНИЦЫ */
