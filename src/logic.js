@@ -34,20 +34,39 @@ async function getData() {
     list.push(plane); //добавляем объект в массив
   }
 
-  list.sort((coordsPlane, b) => {
+  list.sort((a, b) => {
     /* СОРТИРОВКА ПО ДЛИНЕ ОРТОДРОМИИ (ЧАСТЬ ФОРМУЛЫ) */
-    coordsPlane = list[0].coord.split(','); //получаем строковое значение координат
-    for (let i = 0; i <= (coordsPlane.length - 1); i++) { //мутируем массив
-      let str = coordsPlane[i].trim().replace(/°/g, ''); //убираем все ° и пробелы
-      coordsPlane.splice(i, 1, +str); //вставляем как число
-    }
+    a = () => {
+      let coordsPlane = list[0].coord.split(','); //получаем строковое значение координат
+      for (let i = 0; i <= (coordsPlane.length - 1); i++) { //мутируем массив
+        let str = coordsPlane[i].trim().replace(/°/g, ''); //убираем все ° и пробелы
+        coordsPlane.splice(i, 1, +str); //вставляем как число
+      }
 
-    let s = ((Math.sin(airport.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
-      (Math.cos(airport.coordY) * Math.cos(coordsPlane[1])) *
-      Math.cos(coordsPlane[1] - airport.coordY));
-    let r = (s * Math.PI) / 180; //считаем радианы
-    console.log(r);
+      let s = ((Math.sin(airport.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
+        (Math.cos(airport.coordY) * Math.cos(coordsPlane[1])) *
+        Math.cos(coordsPlane[1] - airport.coordY));
+      let r = (s * Math.PI) / 180; //считаем радианы
 
+      return r;
+    };
+
+    b = () => {
+      let coordsPlane = list[1].coord.split(','); //получаем строковое значение координат
+      for (let i = 0; i <= (coordsPlane.length - 1); i++) { //мутируем массив
+        let str = coordsPlane[i].trim().replace(/°/g, ''); //убираем все ° и пробелы
+        coordsPlane.splice(i, 1, +str); //вставляем как число
+      }
+
+      let s = ((Math.sin(airport.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
+        (Math.cos(airport.coordY) * Math.cos(coordsPlane[1])) *
+        Math.cos(coordsPlane[1] - airport.coordY));
+      let r = (s * Math.PI) / 180; //считаем радианы
+
+      return r;
+    };
+
+    return (b - a);
   });
 
   createTable(); //вызываем создание ДОМа
