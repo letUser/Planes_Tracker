@@ -38,11 +38,7 @@ async function getData() {
 
   distanceCalc(); //считаем дистацию объектов
 
-  console.log(list);
-
-  /* СОРТИРОВКА ПО ДЛИНЕ ОРТОДРОМИИ (ЧАСТЬ ФОРМУЛЫ) */
-
-  list.sort((a, b) => a - b);
+  list.sort((a, b) => a.distance - b.distance); //сортируем по дистанции от аэропорта
 
   createTable(); //вызываем создание ДОМа
 }
@@ -63,7 +59,7 @@ let distanceCalc = () => {
     let distance = acosS * 111.3; //умножаем на мередиану
     list[i].distance = +distance.toFixed(2); //добавляем в объект текущую дистанцию
   }
-}
+};
 
 /* ВЫЗОВ ФЕТЧА ПРИ ЗАГРУЗКЕ СТРАНИЦЫ */
 window.onload = getData;
