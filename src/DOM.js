@@ -43,7 +43,7 @@ export default function createTable() {
     let tr = document.createElement("tr");
     table.append(tr);
 
-    for (let value of Object.values(plane)) {
+    for (let value of Object.values(plane).slice(0, 6)) { //прячем дистанцию
       let td = document.createElement("td");
       td.innerHTML = `<p>${value}</p>`;
       tr.append(td);
