@@ -1,6 +1,10 @@
 import "./styles.css";
-import createTable from "./DOM.js";
-import anime from "animejs";
+import {
+  createTable
+} from "./DOM.js";
+import {
+  animStart
+} from "./animation.js";
 
 const airport = {
   coordX: (55.410307).toFixed(3),
@@ -65,12 +69,5 @@ let distanceCalc = () => {
 /* ВЫЗОВ ФЕТЧА ПРИ ЗАГРУЗКЕ СТРАНИЦЫ */
 window.onload = function () {
   getData();
-
-  /* АНИМАЦИЯ ПОЯВЛЕНИЯ */
-  anime({
-    targets: "body",
-    opacity: 1,
-    duration: 1500,
-    easing: 'easeInOutSine',
-  });
-}
+  animStart();
+};

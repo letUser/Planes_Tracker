@@ -39,4 +39,21 @@ img {
   width: 15em;
   bottom: 10em;
   opacity: 0;
+  pointer-events: none;
+}
+
+li {
+  list-style-type: none;
+  display: inline;
+}
+
+.nav {
+  background-color: #92d4d4;
+  margin-top: 0;
+}
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
 }

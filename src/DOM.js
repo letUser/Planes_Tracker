@@ -2,7 +2,9 @@ import "./styles.css";
 import {
   list
 } from "./logic.js";
-import anime from 'animejs';
+import {
+  animPlane
+} from "./animation.js";
 
 /* ШАПКА ТАБЛИЦЫ */
 let headerTable = [
@@ -14,8 +16,42 @@ let headerTable = [
   `Рейс`
 ];
 
+
+/* СОЗДАЕМ HEADER */
+(function () {
+  let div = document.createElement('div');
+  let bar = document.createElement('ul');
+  let nav = document.createElement('select');
+  let logo = document.createElement('li');
+
+  let airports = [
+    'Выберите аэропорт',
+    'Домодедово',
+  ];
+
+  document.body.prepend(div);
+
+  bar.classList.add('nav');
+  div.append(bar);
+
+  logo.innerHTML = `<p> Plane Tracker </p>`;
+  bar.classList.add('logo');
+  bar.append(logo);
+
+  nav.setAttribute('name', 'Аэропорт');
+  bar.append(nav);
+
+  for (let airport of airports) {
+    let option = document.createElement('option');
+    option.innerHTML = `<p>${airport}</p>`;
+    nav.append(option);
+  }
+
+})();
+
+
 /* ФУНКЦИЯ СОЗДАНИЯ ДОМа */
-export default function createTable() {
+let createTable = () => {
   let table = document.querySelector("table");
 
   /* ЕСЛИ ДАННЫЕ УЖЕ СУЩЕСТВУЮТ, ТО УДАЛИТЬ ИХ */
@@ -28,7 +64,7 @@ export default function createTable() {
   let tr = document.createElement("tr");
 
   div.classList.add("table");
-  document.body.prepend(div);
+  document.body.append(div);
   div.append(table);
   table.append(tr);
 
@@ -52,49 +88,8 @@ export default function createTable() {
   }
 }
 
-/* АНИМАЦИЯ САМОЛЕТИКА */
-let img = document.createElement('img');
-img.setAttribute('src', './img/paper_plane.png');
-img.setAttribute('alt', 'plane');
-document.body.append(img);
+animPlane(); //вызываем анимацию лого
 
-setTimeout(() => anim(), 500);
-setTimeout(() => img.style.display = "none", 16000); //скрываем элемент
-
-let anim = () => {
-  anime({
-    targets: img,
-    translateX: {
-      value: 3050,
-      duration: 19000,
-    },
-    rotate: {
-      value: 65,
-      duration: 8000,
-    },
-    translateY: {
-      value: 1400,
-      duration: 19000,
-    },
-    rotateY: {
-      delay: 500,
-      value: -40,
-      duration: 4000,
-    },
-    scaleX: {
-      value: -1,
-      delay: 4000,
-      duration: 10000,
-    },
-    opacity: [{
-        value: 1,
-        duration: 6600,
-      },
-      {
-        value: 0,
-        delay: 8000,
-        duration: 6000,
-      }
-    ]
-  });
-}
+export {
+  createTable
+};
