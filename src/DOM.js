@@ -2,6 +2,7 @@ import "./styles.css";
 import {
   list
 } from "./logic.js";
+import anime from 'animejs';
 
 /* ШАПКА ТАБЛИЦЫ */
 let headerTable = [
@@ -50,3 +51,8 @@ export default function createTable() {
     }
   }
 }
+
+let img = document.createElement('img');
+img.setAttribute('src', './img/paper_plane.png');
+img.setAttribute('alt', 'plane');
+document.body.append(img);
