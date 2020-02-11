@@ -65,6 +65,8 @@ let distanceCalc = () => {
 /* ВЫЗОВ ФЕТЧА ПРИ ЗАГРУЗКЕ СТРАНИЦЫ */
 window.onload = function () {
   getData();
+
+  /* АНИМАЦИЯ ПОЯВЛЕНИЯ */
   anime({
     targets: "body",
     opacity: 1,

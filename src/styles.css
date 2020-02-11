@@ -10,6 +10,10 @@ table {
   border-collapse: collapse;
   text-align: center;
   margin: 2.2em auto auto auto;
+  box-decoration-break: clone;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.623);
+  width: 52em !important;
+  margin-bottom: 4em;
 }
 
 th {
@@ -30,7 +34,9 @@ th {
 
 img {
   position: absolute;
-  left: 300px;
+  left: -300px;
+  top: 30px;
   width: 15em;
   bottom: 10em;
+  opacity: 0;
 }
