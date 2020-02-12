@@ -74,6 +74,6 @@ let distanceCalc = () => {
 
 /* ВЫЗОВ ФЕТЧА ПРИ ЗАГРУЗКЕ СТРАНИЦЫ */
 window.onload = function () {
-  getData();
+  setTimeout(() => getData(), 7000);
   animStart();
 };

@@ -5,6 +5,9 @@ import {
 import {
   introCreation
 } from "./intro.js";
+import {
+  logoAnim,
+} from "./animation.js";
 
 /* ШАПКА ТАБЛИЦЫ */
 let headerTable = [
@@ -45,6 +48,7 @@ let headerTable = [
   img.setAttribute('src', './img/logo.png');
   img.setAttribute('alt', 'logoImg');
   img.classList.add('logoImg');
+  setTimeout(() => logoAnim(), 5000);
 
   for (let el of cities) {
     let city = document.createElement("option");

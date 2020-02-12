@@ -16,6 +16,10 @@ table {
   margin-bottom: 4em;
 }
 
+.table {
+  opacity: 0;
+}
+
 th {
   background-color: #4ed0d1 !important;
   font-size: 1.1em !important;
@@ -51,6 +55,7 @@ th p {
   font-family: "Bangers", cursive !important;
   font-size: 2em;
   color: #f5fdfd;
+  opacity: 0;
 }
 
 .logo p {
@@ -67,6 +72,7 @@ th p {
   position: relative;
   margin: 0 auto 0.3em 2em;
   left: 1.7em;
+  opacity: 0;
 }
 
 option {
