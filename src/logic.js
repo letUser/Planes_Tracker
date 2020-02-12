@@ -24,7 +24,7 @@ async function getData() {
     for (let props of Object.values(data).slice(2)) {
       let plane = {
         //объект каждого самолета
-        coord: `${props[1]}°, ${props[2]}°`,
+        coord: `${props[1].toFixed(3)}°, ${props[2].toFixed(3)}°`,
         speed: `${props[5]} км/ч`,
         course: `${props[3]}°`,
         height: `${props[4]} м`,
