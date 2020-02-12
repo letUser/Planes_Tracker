@@ -13,9 +13,6 @@ export let list = []; //массив объектов
 const url =
   "https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=56.84,55.27,33.48,41.48";
 
-/* ИНТЕРВАЛ ЗАПРОСОВ */
-setInterval(() => getData(), 4000);
-
 /* ФУНКЦИЯ ОБРАБОТКИ ФЕТЧА*/
 async function getData() {
   try {
@@ -43,6 +40,8 @@ async function getData() {
     list.sort((a, b) => a.distance - b.distance); //сортируем по дистанции от аэропорта
 
     createTable(); //вызываем создание ДОМа
+    
+    setTimeout(() => getData(), 4000); //вызываем Фетч через 4 сек
   } catch {
     console.log(
       "Обновление невозможно. Пожалуйста, проверьте Интернет соединение"
