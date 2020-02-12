@@ -20,8 +20,8 @@ function introCreation() {
         document.body.style.pointerEvents = '';
     };
 
-    setTimeout(() => sky.style.display = "none", 4200); //скрываем элемент
-    setTimeout(() => clouds.style.display = "none", 4200); //скрываем элемент
+    setTimeout(() => sky.remove(), 4200); //скрываем элемент
+    setTimeout(() => clouds.remove(), 4200); //скрываем элемент
 
     let sky = document.createElement("img");
     sky.setAttribute('src', './img/sky.png');
@@ -117,7 +117,7 @@ function introCreation() {
     img.classList.add('plane');
     document.body.append(img);
 
-    setTimeout(() => img.style.display = "none", 4200); //скрываем элемент
+    setTimeout(() => img.remove(), 4200); // удаляем элемент
 
     anime({
         targets: '.plane',
@@ -184,7 +184,6 @@ function introCreation() {
             duration: 24000,
         },
     });
-
 }
 
 /* АНИМАЦИЯ ПОЯВЛЕНИЯ */
@@ -195,6 +194,4 @@ function animStart() {
         duration: 1500,
         easing: 'easeInOutSine',
     });
-
-
 }

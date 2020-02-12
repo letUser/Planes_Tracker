@@ -24,6 +24,7 @@ let headerTable = [
   let navBar = document.createElement("div");
   let logoBar = document.createElement("div");
   let nav = document.createElement("select");
+  let img = document.createElement("img");
 
   div.classList.add("header");
   navBar.classList.add("navBar");
@@ -41,6 +42,10 @@ let headerTable = [
 
   nav.prepend(city);
 
+  img.setAttribute('src', './img/logo.png');
+  img.setAttribute('alt', 'logoImg');
+  img.classList.add('logoImg');
+
   for (let el of cities) {
     let city = document.createElement("option");
     city.classList.add("option");
@@ -51,6 +56,7 @@ let headerTable = [
 
   document.body.prepend(div);
   div.append(navBar);
+  div.append(img);
   div.append(logoBar);
   navBar.append(nav);
 })();
