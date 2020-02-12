@@ -118,3 +118,65 @@
     left: 75em;
     pointer-events: none;
 }
+
+@media screen and (max-width: 420px) {
+
+    .sky {
+        width: 420px;
+        height: 800px;
+    }
+
+    .cloud1 {
+        width: 200px;
+    }
+
+    .cloud2 {
+        width: 200px;
+    }
+
+    .cloud3 {
+        width: 200px;
+    }
+
+    .cloud4 {
+        width: 200px;
+    }
+
+    .cloud5 {
+        width: 200px;
+    }
+
+    .cloud6 {
+        width: 200px;
+    }
+
+    .cloud7 {
+        width: 200px;
+    }
+
+    .cloud8 {
+        width: 200px;
+    }
+
+    .cloud9 {
+        width: 200px;
+    }
+
+    .cloud10 {
+        width: 200px;
+    }
+
+    .cloud11 {
+        width: 200px;
+    }
+
+    .cloud12 {
+        width: 200px;
+    }
+
+    .plane {
+        width: 100px;
+        left: -1200px;
+    }
+
+}

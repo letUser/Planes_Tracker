@@ -96,12 +96,28 @@ select {
 }
 
 @media screen and (max-width: 420px) {
-  table {
-    width: 420px;
+
+  .header {
+    width: 414px;
+  }
+
+  .navBar {
+    margin-right: 0 !important;
+  }
+
+  .logo {
+    left: 0;
+    margin-left: 0;
+  }
+
+  .logoImg {
+    left: 0em;
+    margin: 0 auto 0.3em 0;
   }
 
   td,
   th {
+    width: 15px;
     padding: 0;
     margin: 0;
   }
@@ -110,6 +126,28 @@ select {
   th p {
     padding: 0;
     margin: 0;
+  }
+
+  table {
+    font-size: 7.2px;
+    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .logo {
+    font-size: 1.5em;
+    margin: 0 auto 0 0;
+  }
+
+  .logoImg {
+    left: 0em;
+    margin: 0;
+    margin: 0 auto 0 0;
+  }
+
+  .navBar {
+    margin-right: 0;
   }
 }.plane {
     position: fixed;
@@ -230,4 +268,66 @@ select {
     position: fixed;
     left: 75em;
     pointer-events: none;
+}
+
+@media screen and (max-width: 420px) {
+
+    .sky {
+        width: 420px;
+        height: 800px;
+    }
+
+    .cloud1 {
+        width: 200px;
+    }
+
+    .cloud2 {
+        width: 200px;
+    }
+
+    .cloud3 {
+        width: 200px;
+    }
+
+    .cloud4 {
+        width: 200px;
+    }
+
+    .cloud5 {
+        width: 200px;
+    }
+
+    .cloud6 {
+        width: 200px;
+    }
+
+    .cloud7 {
+        width: 200px;
+    }
+
+    .cloud8 {
+        width: 200px;
+    }
+
+    .cloud9 {
+        width: 200px;
+    }
+
+    .cloud10 {
+        width: 200px;
+    }
+
+    .cloud11 {
+        width: 200px;
+    }
+
+    .cloud12 {
+        width: 200px;
+    }
+
+    .plane {
+        width: 100px;
+        left: -1200px;
+    }
+
 }
