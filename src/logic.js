@@ -25,9 +25,9 @@ async function getData() {
       let plane = {
         //объект каждого самолета
         coord: `${props[1]}°, ${props[2]}°`,
-        speed: `${props[5]} km/h`,
+        speed: `${props[5]} км/ч`,
         course: `${props[3]}°`,
-        height: `${props[4]} m`,
+        height: `${props[4]} м`,
         route: `${props[11]} → ${props[12]}`,
         flight: `${props[13]}`,
         distance: 0,
