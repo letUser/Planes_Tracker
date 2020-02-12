@@ -9,6 +9,11 @@ export {
 
 /* СОЗДАЕМ INTRO */
 function introCreation() {
+    document.body.style.position = 'fixed';
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.body.style.position = '', 3600);
+    setTimeout(() => document.body.style.overflow = '', 3600);
+
     let sky = document.createElement("img");
     sky.setAttribute('src', './img/sky.png');
     sky.setAttribute('alt', 'sky');
