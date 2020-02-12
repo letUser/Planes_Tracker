@@ -1,4 +1,4 @@
-<h3>Planes Tracker</h3>
+<h3>Planes Tracker</h3><hr />
 
 This project was built on Native JavaScript with API from <i>flightradar24</i>.
 
