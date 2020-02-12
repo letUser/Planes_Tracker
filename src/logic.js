@@ -4,7 +4,7 @@ import {
 } from "./DOM.js";
 import {
   animStart
-} from "./animation.js";
+} from "./intro.js";
 
 const airport = {
   coordX: (55.410307).toFixed(3),

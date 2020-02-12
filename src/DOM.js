@@ -3,9 +3,8 @@ import {
   list
 } from "./logic.js";
 import {
-  animPlane,
   introCreation
-} from "./animation.js";
+} from "./intro.js";
 
 /* ШАПКА ТАБЛИЦЫ */
 let headerTable = [
@@ -99,4 +98,3 @@ export {
 };
 
 introCreation(); //вызываем анимацию интро
-animPlane(); //вызываем анимацию лого
