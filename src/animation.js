@@ -98,11 +98,25 @@ function introCreation() {
     clouds.append(cloud13);
 
     anime({
+        targets: '.sky',
+        opacity: {
+            value: 0,
+            duration: 9000,
+            delay: 3500,
+        }
+    });
+
+    anime({
         targets: '.clouds',
         translateX: {
             value: -200,
             duration: 24000,
         },
+        opacity: {
+            value: 0,
+            duration: 9000,
+            delay: 3100,
+        }
     });
 
     anime({
@@ -112,6 +126,9 @@ function introCreation() {
             duration: 24000,
         },
     });
+
+    setTimeout(() => sky.style.display = "none", 4200); //скрываем элемент
+    setTimeout(() => clouds.style.display = "none", 4200); //скрываем элемент
 
 }
 
@@ -126,7 +143,7 @@ function animPlane() {
     document.body.append(img);
 
     setTimeout(() => anim(), 500);
-    setTimeout(() => img.style.display = "none", 16000); //скрываем элемент
+    setTimeout(() => img.style.display = "none", 4200); //скрываем элемент
 
     let anim = () => {
         anime({
@@ -155,12 +172,12 @@ function animPlane() {
             },
             opacity: [{
                     value: 1,
-                    duration: 6600,
+                    duration: 1000,
                 },
                 {
                     value: 0,
-                    delay: 8000,
-                    duration: 6000,
+                    delay: 2000,
+                    duration: 4000,
                 }
             ]
         });
