@@ -40,3 +40,27 @@ img {
   bottom: 10em;
   opacity: 0;
 }
+
+.header {
+  display: flex;
+  background-color: #4ed1d1de;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+}
+
+.logo {
+  position: relative;
+  margin: 0 auto 0 auto;
+  left: 1.9em;
+  font-family: "Bangers", cursive !important;
+  font-size: 2em;
+  color: #f5fdfd;
+}
+
+.logo p {
+  margin: 0.5em;
+}
+
+.navBar {
+  display: inline;
+}
