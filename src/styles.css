@@ -16,10 +16,6 @@ table {
   margin-bottom: 4em;
 }
 
-.table {
-  opacity: 0;
-}
-
 th {
   background-color: #4ed0d1 !important;
   font-size: 1.1em !important;
