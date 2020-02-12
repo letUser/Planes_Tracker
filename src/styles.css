@@ -63,4 +63,29 @@ img {
 
 .navBar {
   display: inline;
+  margin-right: 1em;
+}
+
+option {
+  background-color: #4ed1d1de;
+  color: #f5fdfd;
+  text-align: center;
+}
+
+select {
+  background-color: #4ed1d1de;
+  border: 1px solid #f5fdfd;
+  outline: none;
+  color: #f5fdfd;
+  padding: 0.2em;
+  border-radius: 1em;
+  margin-bottom: 0.3em;
+  text-align-last: center;
+  width: 7em;
+  cursor: pointer;
+}
+
+.disabledOption {
+  background-color: #45b6b6de;
+  color: #f5fdfd !important;
 }
