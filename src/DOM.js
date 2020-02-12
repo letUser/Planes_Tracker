@@ -14,6 +14,43 @@ let headerTable = [
   `Рейс`
 ];
 
+/* СОЗДАЕМ HEADER */
+(function headerCreation() {
+  let cities = ["Москва", "Берлин"];
+
+  let div = document.createElement("div");
+  let navBar = document.createElement("div");
+  let logoBar = document.createElement("div");
+  let nav = document.createElement("select");
+
+  div.classList.add("header");
+  navBar.classList.add("navBar");
+
+  nav.setAttribute("name", "citySelector");
+  nav.classList.add("citySelector");
+
+  logoBar.classList.add("logo");
+  logoBar.innerHTML = `<p>Planes Tracker</p>`;
+
+  let city = document.createElement("option");
+  city.innerHTML = `<p>Выберите город</p>`;
+  city.setAttribute("disabled", "true");
+
+  nav.prepend(city);
+
+  for (let el of cities) {
+    let city = document.createElement("option");
+    city.innerHTML = `<p>${el}</p>`;
+
+    nav.append(city);
+  }
+
+  document.body.prepend(div);
+  div.append(navBar);
+  div.append(logoBar);
+  navBar.append(nav);
+})();
+
 /* ФУНКЦИЯ СОЗДАНИЯ ДОМа */
 export default function createTable() {
   let table = document.querySelector("table");
