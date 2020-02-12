@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   opacity: 0;
 }
@@ -32,6 +32,11 @@ th {
   color: #0a5f61;
 }
 
+td p,
+th p {
+  margin: 0.3em;
+}
+
 img {
   position: absolute;
   left: -300px;
@@ -39,21 +44,71 @@ img {
   width: 15em;
   bottom: 10em;
   opacity: 0;
-  pointer-events: none;
 }
 
-li {
-  list-style-type: none;
+.header {
+  display: flex;
+  background-color: #4ed1d1de;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+}
+
+.logo {
+  position: relative;
+  margin: 0 auto 0 auto;
+  left: 1.9em;
+  font-family: "Bangers", cursive !important;
+  font-size: 2em;
+  color: #f5fdfd;
+}
+
+.logo p {
+  margin: 0.5em;
+}
+
+.navBar {
   display: inline;
+  margin-right: 1em;
 }
 
-.nav {
-  background-color: #92d4d4;
-  margin-top: 0;
+option {
+  background-color: #4ed1d1de;
+  color: #f5fdfd;
+  text-align: center;
 }
 
-ul {
-  margin-block-start: 0;
-  margin-block-end: 0;
-  padding-inline-start: 0;
+select {
+  background-color: #4ed1d1de;
+  border: 1px solid #f5fdfd;
+  outline: none;
+  color: #f5fdfd;
+  padding: 0.2em;
+  border-radius: 1em;
+  margin-bottom: 0.3em;
+  text-align-last: center;
+  width: 7em;
+  cursor: pointer;
+}
+
+.disabledOption {
+  background-color: #45b6b6de;
+  color: #f5fdfd !important;
+}
+
+@media screen and (max-width: 420px) {
+  table {
+    width: 420px;
+  }
+
+  td,
+  th {
+    padding: 0;
+    margin: 0;
+  }
+
+  td p,
+  th p {
+    padding: 0;
+    margin: 0;
+  }
 }

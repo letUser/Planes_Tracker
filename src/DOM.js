@@ -18,37 +18,43 @@ let headerTable = [
 
 
 /* СОЗДАЕМ HEADER */
-(function () {
-  let div = document.createElement('div');
-  let bar = document.createElement('ul');
-  let nav = document.createElement('select');
-  let logo = document.createElement('li');
+(function headerCreation() {
+  let cities = ["Москва", "Берлин"];
 
-  let airports = [
-    'Выберите аэропорт',
-    'Домодедово',
-  ];
+  let div = document.createElement("div");
+  let navBar = document.createElement("div");
+  let logoBar = document.createElement("div");
+  let nav = document.createElement("select");
 
-  document.body.prepend(div);
+  div.classList.add("header");
+  navBar.classList.add("navBar");
 
-  bar.classList.add('nav');
-  div.append(bar);
+  nav.setAttribute("name", "citySelector");
+  nav.classList.add("citySelector");
 
-  logo.innerHTML = `<p> Plane Tracker </p>`;
-  bar.classList.add('logo');
-  bar.append(logo);
+  logoBar.classList.add("logo");
+  logoBar.innerHTML = `<p>Planes Tracker</p>`;
 
-  nav.setAttribute('name', 'Аэропорт');
-  bar.append(nav);
+  let city = document.createElement("option");
+  city.classList.add("disabledOption");
+  city.innerHTML = `<p>Выберите город</p>`;
+  city.setAttribute("disabled", "true");
 
-  for (let airport of airports) {
-    let option = document.createElement('option');
-    option.innerHTML = `<p>${airport}</p>`;
-    nav.append(option);
+  nav.prepend(city);
+
+  for (let el of cities) {
+    let city = document.createElement("option");
+    city.classList.add("option");
+    city.innerHTML = `<p>${el}</p>`;
+
+    nav.append(city);
   }
 
+  document.body.prepend(div);
+  div.append(navBar);
+  div.append(logoBar);
+  navBar.append(nav);
 })();
-
 
 /* ФУНКЦИЯ СОЗДАНИЯ ДОМа */
 let createTable = () => {
