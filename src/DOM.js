@@ -3,7 +3,8 @@ import {
   list
 } from "./logic.js";
 import {
-  animPlane
+  animPlane,
+  introCreation
 } from "./animation.js";
 
 /* ШАПКА ТАБЛИЦЫ */
@@ -15,7 +16,6 @@ let headerTable = [
   `Маршрут`,
   `Рейс`
 ];
-
 
 /* СОЗДАЕМ HEADER */
 (function headerCreation() {
@@ -92,10 +92,11 @@ let createTable = () => {
       tr.append(td);
     }
   }
-}
-
-animPlane(); //вызываем анимацию лого
+};
 
 export {
   createTable
 };
+
+introCreation(); //вызываем анимацию интро
+animPlane(); //вызываем анимацию лого

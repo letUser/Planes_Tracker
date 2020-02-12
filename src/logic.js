@@ -44,12 +44,13 @@ async function getData() {
     list.sort((a, b) => a.distance - b.distance); //сортируем по дистанции от аэропорта
 
     createTable(); //вызываем создание ДОМа
-    
+
     setTimeout(() => getData(), 4000); //вызываем Фетч через 4 сек
   } catch {
     console.log(
       "Обновление невозможно. Пожалуйста, проверьте Интернет соединение"
     );
+    setTimeout(() => getData(), 5000);
   }
 }
 
