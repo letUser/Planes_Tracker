@@ -15,7 +15,7 @@ export let list = []; //массив объектов
 
 /* НАЗНАЧАЕМ URL */
 const url =
-  "https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=56.84,55.27,33.48,41.48";
+  "https://data-live.flightradar24.com/zones/fcgi/feed.js";
 
 /* ФУНКЦИЯ ОБРАБОТКИ ФЕТЧА*/
 async function getData() {
