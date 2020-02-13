@@ -21,7 +21,7 @@ let headerTable = [
 
 /* СОЗДАЕМ HEADER */
 (function headerCreation() {
-  let cities = ["Москва"];
+  const cities = ["Мир", "Москва", "Берлин", "Нью-Йорк", "Пекин"];
 
   let div = document.createElement("div");
   let navBar = document.createElement("div");
