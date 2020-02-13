@@ -31,7 +31,7 @@ async function getData() {
         coord: `${props[1].toFixed(3)}°, ${props[2].toFixed(3)}°`,
         speed: `${props[5]*1.852} км/ч`,
         course: `${props[3]}°`,
-        height: `${props[4]} м`,
+        height: `${props[4]*0.3048} м`,
         route: `${props[11]} → ${props[12]}`,
         flight: `${props[13]}`,
         distance: 0,
