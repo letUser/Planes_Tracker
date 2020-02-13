@@ -6,11 +6,29 @@ import {
   animStart
 } from "./intro.js";
 
-const airport = {
+const cities = [
+ World: { 
+  coordX: 0,
+  coordY: 0
+  },
+ Moscow: { 
   coordX: (55.410307).toFixed(3),
-  coordY: (37.902451).toFixed(3),
-}; //координаты Домодедово (по условию задачи)
-
+  coordY: (37.902451).toFixed(3)
+  },
+  Berlin: {
+  coordX: (52.52437).toFixed(3),
+  coordY: (13.41053).toFixed(3)
+  },
+  New-York: {
+  coordX: (40.71427).toFixed(3),
+  coordY: (-74.00597).toFixed(3)
+  },
+  Pekin: {
+  coordX: (39.9075).toFixed(3),
+  coordY: (116.39723).toFixed(3)
+  },
+],
+      
 export let list = []; //массив объектов
 
 /* НАЗНАЧАЕМ URL */
@@ -63,9 +81,9 @@ let distanceCalc = () => {
       coordsPlane.splice(i, 1, +str); //вставляем как число
     }
 
-    let cosS = ((Math.sin(airport.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
-      (Math.cos(airport.coordX) * Math.cos(coordsPlane[0])) *
-      Math.cos(coordsPlane[1] - airport.coordY));
+    let cosS = ((Math.sin(cities.World.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
+      (Math.cos(cities.World.coordX) * Math.cos(coordsPlane[0])) *
+      Math.cos(coordsPlane[1] - cities.World.coordY));
     let acosS = Math.acos(cosS);
     let distance = acosS * 111.3; //умножаем на мередиану
     list[i].distance = +distance.toFixed(2); //добавляем в объект текущую дистанцию
