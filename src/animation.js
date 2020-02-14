@@ -6,13 +6,14 @@ function logoAnim() {
         targets: ".logoImg",
         opacity: 1,
         duration: 2000,
-        delay: 1000,
+        delay: 4000,
     });
 
     anime({
         targets: ".logo",
+        delay: 3000,
         opacity: 1,
-        duration: 2000,
+        duration: 3000,
     });
 }
 

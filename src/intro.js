@@ -122,6 +122,7 @@ function introCreation() {
         targets: ".header",
         opacity: 1,
         duration: 1500,
+        delay: 4000,
         easing: 'easeInOutSine',
     });
 

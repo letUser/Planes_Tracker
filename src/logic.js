@@ -103,5 +103,5 @@ let distanceCalc = () => {
 window.onload = function () {
   download(); //трехсекундный загрузчик, чтобы закинуть все картинки в кэш
   setTimeout(() => introCreation(), 3000);
-  setTimeout(() => getData(), 8000);
+  setTimeout(() => getData(), 9500);
 };
