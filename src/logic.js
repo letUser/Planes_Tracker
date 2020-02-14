@@ -1,6 +1,8 @@
 import "./styles.css";
 import {
-  createTable
+  createTable,
+  deleteAlert,
+  showAlert,
 } from "./DOM.js";
 import {
   animStart
@@ -40,6 +42,14 @@ async function getData() {
   try {
     let response = await fetch(url);
     let data = await response.json(); //В URL любезно положили объект, поэтому json
+    showData(data);
+  } catch {
+    alertShow();
+    setTimeout(() => getData(), 5000);
+  }
+};
+
+let showData = (data) => {
     list.splice(0, list.length); //очищаем массив
 
     /* ПРОХОДИМ ПО МАССИВУ ЗНАЧЕНИЙ И УБИРАЕМ 2 ПЕРВЫХ ЗНАЧЕНИЯ */
@@ -60,17 +70,15 @@ async function getData() {
     distanceCalc(); //считаем дистацию объектов
 
     list.sort((a, b) => a.distance - b.distance); //сортируем по дистанции от аэропорта
+  
+    if (document.getElementsByClassName("alertBox").length > 0) {
+    deleteAlert();
+    } //проверка наличия окна об ошибке
 
     createTable(); //вызываем создание ДОМа
-
-    setTimeout(() => getData(), 4000); //вызываем Фетч через 4 сек
-  } catch {
-    console.log(
-      "Обновление невозможно. Пожалуйста, проверьте Интернет соединение"
-    );
-    setTimeout(() => getData(), 5000);
-  }
-}
+  
+    setTimeout(() => getData(), 3200); //вызываем Фетч через 3,2 сек
+};
 
 /* РАСЧЕТ ПО ДЛИНЕ ОРТОДРОМИИ ЧЕРЕЗ МЕРЕДИАНУ */
 let distanceCalc = () => {
