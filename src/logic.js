@@ -49,6 +49,7 @@ async function getData() {
   }
 };
 
+/* СОЗДАЕМ ОБЪЕКТЫ ДОМа */
 let showData = (data) => {
     list.splice(0, list.length); //очищаем массив
 
@@ -71,9 +72,8 @@ let showData = (data) => {
 
     list.sort((a, b) => a.distance - b.distance); //сортируем по дистанции от аэропорта
   
-    if (document.getElementsByClassName("alertBox").length > 0) {
-    deleteAlert();
-    } //проверка наличия окна об ошибке
+    if (document.getElementById("alert")) deleteAlert();
+    //проверка наличия окна об ошибке
 
     createTable(); //вызываем создание ДОМа
   
