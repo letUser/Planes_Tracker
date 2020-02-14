@@ -114,7 +114,7 @@ let alertShow = () => {
   let text = document.createElement("div");
 
   wrapper.setAttribute("id", "alert");
-  div.setAttribute("id", "alertBox");
+  div.classList.add("alertBox");
 
   bttn.classList.add("alertBttn");
   bttn.setAttribute("value", "Обновить");
