@@ -10,8 +10,5 @@ https://codesandbox.io/s/github/letUser/Planes_Tracker
 <b>See deployment: </b> <br />
 https://letuser.github.io/Planes_Tracker/
 
-SVG provided by: <br />
-https://fontawesome.com/
-
 Animations powered by: <br />
 https://animejs.com/
