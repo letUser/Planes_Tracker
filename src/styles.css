@@ -95,6 +95,28 @@ select {
   color: #f5fdfd !important;
 }
 
+#alert {
+  width: 375px;
+}
+
+.alertBox {
+  display: fixed;
+  border: 1px solid rgb(255, 198, 198);
+  border-radius: 0.7em;
+  margin: 0 auto 0 auto;
+  padding: 0.6em;
+  width: 375px;
+  background-color: #fff1f1d5;
+}
+
+.alertBttn {
+  background-color: #f5fdfd;
+  border: 1px solid rgb(255, 198, 198);
+  border-radius: 0.7em;
+  outline: none;
+  padding: 0.8em;
+}
+
 @media screen and (max-width: 420px) {
 
   .header {
