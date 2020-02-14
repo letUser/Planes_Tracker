@@ -105,9 +105,7 @@ let createTable = () => {
 
 /* РИСУЕМ АЛЕРТ КОННЕКШЕНА */
 let alertShow = () => {
-  if (document.getElementsByClassName("alert").length > 0) {
-    deleteAlert();
-  }
+  if (document.getElementById("alert")) deleteAlert();
 
   let wrapper = document.createElement("div");
   let div = document.createElement("div");
@@ -115,7 +113,7 @@ let alertShow = () => {
   let icon = document.createElement("img");
   let text = document.createElement("div");
 
-  wrapper.classList.add("alert");
+  wrapper.setAttribute("id", "alert");
   div.setAttribute("id", "alertBox");
 
   bttn.classList.add("alertBttn");
@@ -137,8 +135,8 @@ let alertShow = () => {
 
 /* УДАЛЯЕМ АЛЕРТ КОННЕКШЕНА */
 let deleteAlert = () => {
-  let alertBox = document.getElementById("alertBox");
-  alertBox.parentNode.remove();
+  let alert = document.getElementById("alert");
+  alert.remove();
 };
 
 export { createTable, alertShow, deleteAlert };
