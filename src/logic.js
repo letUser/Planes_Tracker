@@ -58,9 +58,9 @@ let takeData = data => {
     let plane = {
       //объект каждого самолета
       coord: `${props[1].toFixed(3)}°, ${props[2].toFixed(3)}°`,
-      speed: `${props[5]*1.852} км/ч`,
+      speed: `${(props[5]*1.852).toFixed(0)} км/ч`,
       course: `${props[3]}°`,
-      height: `${props[4]*0.3048} м`,
+      height: `${(props[4]*0.3048).toFixed(0)} м`,
       route: `${props[11]} → ${props[12]}`,
       flight: `${props[13]}`,
       distance: 0,
