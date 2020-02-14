@@ -9,6 +9,8 @@ import {
   logoAnim,
 } from "./animation.js";
 
+introCreation(); //вызываем анимацию интро
+
 /* ШАПКА ТАБЛИЦЫ */
 let headerTable = [
   `Координаты`,
@@ -140,5 +142,3 @@ let deleteAlert = () => {
 };
 
 export { createTable, alertShow, deleteAlert };
-
-introCreation(); //вызываем анимацию интро
