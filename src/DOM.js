@@ -69,18 +69,17 @@ let headerTable = [
 
 /* ФУНКЦИЯ СОЗДАНИЯ ДОМа */
 let createTable = () => {
-  let table = document.querySelector("table");
-
   /* ЕСЛИ ДАННЫЕ УЖЕ СУЩЕСТВУЮТ, ТО УДАЛИТЬ ИХ */
-  if (document.getElementsByClassName("table").length > 0) {
-    table.parentNode.remove();
+  if (document.getElementById("table")) {
+    let table = document.getElementById("table");
+    table.remove();
   }
 
   let div = document.createElement("div");
-  table = document.createElement("table");
+  let table = document.createElement("table");
   let tr = document.createElement("tr");
 
-  div.classList.add("table");
+  div.setAtribute("id", "table");
   document.body.append(div);
   div.append(table);
   table.append(tr);
