@@ -103,8 +103,44 @@ let createTable = () => {
   }
 };
 
-export {
-  createTable
+/* РИСУЕМ АЛЕРТ КОННЕКШЕНА */
+let alertShow = () => {
+  if (document.getElementsByClassName("alert").length > 0) {
+    deleteAlert();
+  }
+
+  let wrapper = document.createElement("div");
+  let div = document.createElement("div");
+  let bttn = document.createElement("input");
+  let icon = document.createElement("img");
+  let text = document.createElement("div");
+
+  wrapper.classList.add("alert");
+  div.setAttribute("id", "alertBox");
+
+  bttn.classList.add("alertBttn");
+  bttn.setAttribute("value", "Обновить");
+  bttn.setAttribute("type", "button");
+
+  icon.classList.add("alertIcon");
+  icon.setAttribute("src", "./img/refresh-icon.png");
+
+  text.classList.add("alertText");
+  text.innerHTML = `<p> Интернет соединение потеряно. <br /> Попробуйте отправить повторный запрос. </p>`;
+
+  document.body.append(wrapper);
+  wrapper.append(div);
+  div.append(text);
+  div.append(icon);
+  div.append(bttn);
 };
+
+/* УДАЛЯЕМ АЛЕРТ КОННЕКШЕНА */
+let deleteAlert = () => {
+  let alertBox = document.getElementById("alertBox");
+  alertBox.parentNode.remove();
+};
+
+export { createTable, alertShow, deleteAlert };
 
 introCreation(); //вызываем анимацию интро
