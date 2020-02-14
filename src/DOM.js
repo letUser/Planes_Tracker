@@ -3,13 +3,9 @@ import {
   list
 } from "./logic.js";
 import {
-  introCreation
-} from "./intro.js";
-import {
   logoAnim,
+  downloadAnim
 } from "./animation.js";
-
-introCreation(); //вызываем анимацию интро
 
 /* ШАПКА ТАБЛИЦЫ */
 let headerTable = [
@@ -20,6 +16,23 @@ let headerTable = [
   `Маршрут`,
   `Рейс`
 ];
+
+/* СОЗДАЕМ ЗАГРУЗЧИК */
+let download = () => {
+  let div = document.createElement("div");
+  let img = document.createElement("img");
+  img.setAttribute('src', './img/download.png');
+  img.setAttribute('alt', 'download');
+
+  img.classList.add('downloadImg');
+  div.classList.add('download');
+
+  document.body.append(div);
+  div.append(img);
+
+  downloadAnim();
+  setTimeout(() => div.remove(), 3000);
+}
 
 /* СОЗДАЕМ HEADER */
 (function headerCreation() {
@@ -143,5 +156,6 @@ let deleteAlert = () => {
 export {
   createTable,
   alertShow,
-  deleteAlert
+  deleteAlert,
+  download
 };

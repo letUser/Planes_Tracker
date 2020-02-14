@@ -1,6 +1,19 @@
 body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
+}
+
+.download {
+  width: 100px;
+  height: 100px;
+  margin: 18% auto;
+}
+
+.downloadImg {
+  position: fixed;
+  margin: auto;
+  width: 100px;
+  height: 100px;
   opacity: 0;
 }
 
@@ -42,6 +55,7 @@ th p {
   background-color: #4ed1d1de;
   align-items: flex-end;
   flex-direction: row-reverse;
+  opacity: 0;
 }
 
 .logo {
@@ -67,8 +81,9 @@ th p {
   width: 3.4em;
   position: relative;
   margin: 0 auto 0.3em 2em;
-  left: 2.5em;
+  left: 2.6em;
   opacity: 0;
+  pointer-events: none;
 }
 
 option {
@@ -91,8 +106,7 @@ select {
 }
 
 .disabledOption {
-  background-color: #45b6b6de;
-  color: #f5fdfd !important;
+  background-color: #cde7e7;
 }
 
 .alertBox {

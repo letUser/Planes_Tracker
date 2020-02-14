@@ -3,9 +3,10 @@ import {
   createTable,
   deleteAlert,
   alertShow,
+  download,
 } from "./DOM.js";
 import {
-  animStart
+  introCreation
 } from "./intro.js";
 
 const city = {
@@ -98,8 +99,9 @@ let distanceCalc = () => {
   }
 };
 
-/* ВЫЗОВ ФЕТЧА ПРИ ЗАГРУЗКЕ СТРАНИЦЫ */
+/* ВЫЗОВ ИНТРО И ФЕТЧА ПРИ ЗАГРУЗКЕ СТРАНИЦЫ */
 window.onload = function () {
-  setTimeout(() => getData(), 7000);
-  animStart();
+  download(); //трехсекундный загрузчик, чтобы закинуть все картинки в кэш
+  setTimeout(() => introCreation(), 3000);
+  setTimeout(() => getData(), 8000);
 };

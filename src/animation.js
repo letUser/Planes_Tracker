@@ -16,6 +16,26 @@ function logoAnim() {
     });
 }
 
+function downloadAnim() {
+    anime({
+        targets: ".downloadImg",
+        opacity: [{
+            value: 1,
+            duration: 1000,
+        }, {
+            value: 0,
+            duration: 2000,
+            delay: 500
+        }],
+        rotate: {
+            value: -1000,
+            duration: 5000,
+        },
+        easing: 'easeInOutCirc'
+    });
+}
+
 export {
     logoAnim,
+    downloadAnim
 };

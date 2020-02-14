@@ -2,7 +2,6 @@ import "./styleIntro.css";
 import anime from "animejs";
 
 export {
-    animStart,
     introCreation,
 };
 
@@ -12,7 +11,7 @@ function introCreation() {
     document.body.style.overflow = 'hidden';
     document.body.style.pointerEvents = 'none';
 
-    setTimeout(() => interactionAccess(), 3600);
+    setTimeout(() => interactionAccess(), 4000);
 
     let interactionAccess = () => {
         document.body.style.position = '';
@@ -120,6 +119,13 @@ function introCreation() {
     setTimeout(() => img.remove(), 4200); // удаляем элемент
 
     anime({
+        targets: ".header",
+        opacity: 1,
+        duration: 1500,
+        easing: 'easeInOutSine',
+    });
+
+    anime({
         targets: '.plane',
         translateX: {
             value: 3050,
@@ -187,11 +193,11 @@ function introCreation() {
 }
 
 /* АНИМАЦИЯ ПОЯВЛЕНИЯ */
-function animStart() {
-    anime({
-        targets: "body",
-        opacity: 1,
-        duration: 1500,
-        easing: 'easeInOutSine',
-    });
-}
+// function animStart() {
+//     anime({
+//         targets: "body",
+//         opacity: 1,
+//         duration: 1500,
+//         easing: 'easeInOutSine',
+//     });
+// }
