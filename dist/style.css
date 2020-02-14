@@ -95,6 +95,51 @@ select {
   color: #f5fdfd !important;
 }
 
+.alertBox {
+  display: flex-box;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid rgb(255, 198, 198);
+  border-radius: 0.7em;
+  margin: 0 auto 0 auto;
+  padding: 0.6em;
+  width: 375px;
+  background-color: #fff1f1d5;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.623);
+}
+
+.alertBttn {
+  position: relative;
+  background-color: #f5fdfd;
+  border: 1px solid rgb(255, 198, 198);
+  border-radius: 0.7em;
+  outline: none;
+  padding: 0.8em;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.623);
+  left: 8.5em;
+}
+
+.alertBttn:hover {
+  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.623);
+  cursor: pointer;
+  background-color: rgb(255, 198, 198);
+}
+
+.alertText {
+  position: relative;
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.alertIcon {
+  position: relative;
+  left: 21.8em;
+  top: -5.5em;
+  width: 25px;
+  height: 20px;
+  position: relative;
+}
+
 @media screen and (max-width: 420px) {
 
   .header {
@@ -149,7 +194,8 @@ select {
   .navBar {
     margin-right: 0;
   }
-}.plane {
+}
+.plane {
     position: fixed;
     left: -300px;
     top: 30px;

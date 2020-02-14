@@ -79,7 +79,7 @@ let createTable = () => {
   let table = document.createElement("table");
   let tr = document.createElement("tr");
 
-  div.setAtribute("id", "table");
+  div.setAttribute("id", "table");
   document.body.append(div);
   div.append(table);
   table.append(tr);
@@ -125,7 +125,7 @@ let alertShow = () => {
   icon.setAttribute("src", "./img/refresh-icon.png");
 
   text.classList.add("alertText");
-  text.innerHTML = `<p> Интернет соединение потеряно. <br /> Попробуйте отправить повторный запрос. </p>`;
+  text.innerHTML = `<p>Интернет соединение потеряно.<br />Попробуйте отправить повторный запрос.</p>`;
 
   document.body.append(wrapper);
   wrapper.append(div);
@@ -140,4 +140,8 @@ let deleteAlert = () => {
   alert.remove();
 };
 
-export { createTable, alertShow, deleteAlert };
+export {
+  createTable,
+  alertShow,
+  deleteAlert
+};
