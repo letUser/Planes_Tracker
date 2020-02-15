@@ -110,9 +110,10 @@ select {
   background-color: #cde7e7;
 }
 
-.alert {
+#alert {
   position: fixed;
-  margin: 0 auto;
+  left: 40%;
+  top: 40%;
   z-index: 99999999;
 }
 
