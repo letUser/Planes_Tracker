@@ -1,6 +1,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
+  opacity: 0;
 }
 
 .download {
@@ -258,7 +259,8 @@ select {
     top: 15em;
     position: fixed;
     left: 40em;
-    transform: scale(1.4);
+    width: 25em;
+    opacity: 0.9;
     pointer-events: none;
 }
 
@@ -329,9 +331,9 @@ select {
 }
 
 .cloud13 {
-    top: 50em;
+    top: 17em;
     position: fixed;
-    left: 75em;
+    left: 100em;
     pointer-events: none;
 }
 

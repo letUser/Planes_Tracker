@@ -1,9 +1,13 @@
 import "./styleIntro.css";
 import anime from "animejs";
-
+import {
+    headerCreation
+} from "./DOM.js";
 export {
     introCreation,
+    animStart
 };
+
 
 let sky = document.createElement("img");
 sky.setAttribute('src', './img/sky.png');
@@ -103,7 +107,6 @@ function introCreation() {
     clouds.append(cloud1);
     clouds.append(cloud2);
     clouds.append(cloud3);
-    clouds.append(cloud4);
     clouds.append(cloud5);
     clouds.append(cloud6);
     clouds.append(cloud7);
@@ -114,10 +117,13 @@ function introCreation() {
     clouds.append(cloud12);
     clouds.append(cloud13);
     document.body.append(img);
+    document.body.append(cloud4);
 
-    setTimeout(() => img.remove(), 4200); // удаляем элемент
-    setTimeout(() => sky.remove(), 4200); //удаляем элемент
-    setTimeout(() => clouds.remove(), 4200); //удаляем элемент
+
+    setTimeout(() => img.remove(), 4200); // удаляем элементы
+    setTimeout(() => sky.remove(), 4200);
+    setTimeout(() => clouds.remove(), 4200);
+    setTimeout(() => cloud4.remove(), 4200);
 
     anime({
         targets: ".header",
@@ -130,7 +136,7 @@ function introCreation() {
     anime({
         targets: '.plane',
         translateX: {
-            value: 3050,
+            value: 3300,
             duration: 19000,
         },
         rotate: {
@@ -138,19 +144,29 @@ function introCreation() {
             duration: 8000,
         },
         translateY: {
-            value: 1400,
-            duration: 19000,
+            value: 1600,
+            duration: 21000,
         },
-        rotateY: {
-            delay: 500,
-            value: -40,
-            duration: 4000,
-        },
-        scaleX: {
-            value: -1,
-            delay: 4000,
-            duration: 10000,
-        },
+        rotateY: [{
+                value: -30,
+                duration: 3000,
+                delay: 100,
+            },
+            {
+                value: 12,
+                delay: 1000,
+            }
+        ],
+        scale: [{
+                value: 0.5,
+                duration: 800,
+            },
+            {
+                value: 2,
+                duration: 25000,
+                delay: 600,
+            }
+        ],
         opacity: [{
                 value: 1,
                 duration: 1000,
@@ -173,7 +189,7 @@ function introCreation() {
     });
 
     anime({
-        targets: '.clouds',
+        targets: '.clouds, .cloud4',
         translateX: {
             value: -200,
             duration: 24000,
@@ -186,10 +202,21 @@ function introCreation() {
     });
 
     anime({
-        targets: '.cloud1, .cloud10',
+        targets: '.cloud1, .cloud10, .cloud3',
         translateX: {
             value: -100,
             duration: 24000,
         },
+    });
+
+    headerCreation();
+}
+
+function animStart() {
+    anime({
+        targets: "body",
+        opacity: 1,
+        duration: 1500,
+        easing: 'easeInOutSine',
     });
 }

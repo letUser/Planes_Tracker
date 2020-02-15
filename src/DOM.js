@@ -8,13 +8,14 @@ import {
   alertAnim
 } from "./animation.js";
 import {
-  introCreation
+  introCreation,
+  animStart
 } from "./intro.js";
 
 /* ЗАПУСК ИНТРО */
 window.onload = function () {
+  animStart();
   introCreation();
-  getData();
 };
 
 /* ШАПКА ТАБЛИЦЫ */
@@ -28,7 +29,7 @@ let headerTable = [
 ];
 
 /* СОЗДАЕМ HEADER */
-(function headerCreation() {
+function headerCreation() {
   const cities = ["Мир", "Москва", "Берлин", "Нью-Йорк", "Пекин"];
 
   let div = document.createElement("div");
@@ -71,7 +72,11 @@ let headerTable = [
   div.append(img);
   div.append(logoBar);
   navBar.append(nav);
-})();
+
+  setTimeout(() => getData(), 8000);
+  /* хедер появляется при запуске интро, поэтому внезависимости от скорости интернета
+     будет пройдено именно заявленное в таймауте время. */
+}
 
 /* ФУНКЦИЯ СОЗДАНИЯ ДОМа */
 let createTable = () => {
@@ -151,5 +156,6 @@ let deleteAlert = () => {
 export {
   createTable,
   alertShow,
-  deleteAlert
+  deleteAlert,
+  headerCreation
 };
