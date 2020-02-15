@@ -5,17 +5,16 @@ import {
 } from "./logic.js";
 import {
   logoAnim,
-  downloadAnim
+  alertAnim
 } from "./animation.js";
 import {
   introCreation
-} from "./intro";
+} from "./intro.js";
 
-
-
+/* ЗАПУСК ИНТРО */
 window.onload = function () {
-  //download(); //загрузчик, чтобы закинуть все картинки в кэш
   introCreation();
+  getData();
 };
 
 /* ШАПКА ТАБЛИЦЫ */
@@ -27,23 +26,6 @@ let headerTable = [
   `Маршрут`,
   `Рейс`
 ];
-
-/* СОЗДАЕМ ЗАГРУЗЧИК */
-let download = () => {
-  let div = document.createElement("div");
-  let img = document.createElement("img");
-  img.setAttribute('src', './img/download.png');
-  img.setAttribute('alt', 'download');
-
-  img.classList.add('downloadImg');
-  div.classList.add('download');
-
-  document.body.append(div);
-  div.append(img);
-
-  downloadAnim();
-  // 'main.js'.onload = div.remove();
-}
 
 /* СОЗДАЕМ HEADER */
 (function headerCreation() {
@@ -146,7 +128,7 @@ let alertShow = () => {
   bttn.setAttribute("type", "button");
 
   icon.classList.add("alertIcon");
-  icon.setAttribute("src", "./img/refresh-icon.png");
+  icon.setAttribute("src", "./img/download.png");
 
   text.classList.add("alertText");
   text.innerHTML = `<p>Интернет соединение потеряно.<br />Попробуйте отправить повторный запрос.</p>`;
@@ -156,6 +138,8 @@ let alertShow = () => {
   div.append(text);
   div.append(icon);
   div.append(bttn);
+
+  alertAnim();
 };
 
 /* УДАЛЯЕМ АЛЕРТ КОННЕКШЕНА */
@@ -167,6 +151,5 @@ let deleteAlert = () => {
 export {
   createTable,
   alertShow,
-  deleteAlert,
-  download
+  deleteAlert
 };

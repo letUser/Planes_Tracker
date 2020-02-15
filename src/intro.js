@@ -193,13 +193,3 @@ function introCreation() {
         },
     });
 }
-
-/* АНИМАЦИЯ ПОЯВЛЕНИЯ */
-// function animStart() {
-//     anime({
-//         targets: "body",
-//         opacity: 1,
-//         duration: 1500,
-//         easing: 'easeInOutSine',
-//     });
-// }

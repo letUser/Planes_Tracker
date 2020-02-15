@@ -10,6 +10,7 @@ export {
   getData
 };
 
+/* РЕГИОНЫ */
 const city = {
   World: {
     coordX: 1,

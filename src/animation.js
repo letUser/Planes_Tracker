@@ -17,20 +17,17 @@ function logoAnim() {
     });
 }
 
-function downloadAnim() {
+function alertAnim() {
     anime({
-        targets: ".downloadImg",
-        opacity: [{
+        targets: ".alertIcon",
+        opacity: {
             value: 1,
             duration: 1000,
-        }, {
-            value: 0,
-            duration: 2000,
-            delay: 500
-        }],
+        },
         rotate: {
             value: 1000,
             duration: 5000,
+            loop: true,
         },
         easing: 'easeInOutCirc'
     });
@@ -38,5 +35,5 @@ function downloadAnim() {
 
 export {
     logoAnim,
-    downloadAnim
+    alertAnim
 };
