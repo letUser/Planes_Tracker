@@ -3,11 +3,12 @@ import {
   createTable,
   deleteAlert,
   alertShow,
-  download,
 } from "./DOM.js";
-import {
-  introCreation
-} from "./intro.js";
+
+
+export {
+  getData
+};
 
 const city = {
   World: {
@@ -59,9 +60,9 @@ let takeData = data => {
     let plane = {
       //объект каждого самолета
       coord: `${props[1].toFixed(3)}°, ${props[2].toFixed(3)}°`,
-      speed: `${(props[5]*1.852).toFixed(0)} км/ч`,
+      speed: `${(props[5]*1.852).toFixed(0)} км/ч`, //переводим узлы в км/ч
       course: `${props[3]}°`,
-      height: `${(props[4]*0.3048).toFixed(0)} м`,
+      height: `${(props[4]*0.3048).toFixed(0)} м`, //переводим футы метры
       route: `${props[11]} → ${props[12]}`,
       flight: `${props[13]}`,
       distance: 0,
@@ -97,11 +98,4 @@ let distanceCalc = () => {
     let distance = acosS * 111.3; //умножаем на мередиану
     list[i].distance = +distance.toFixed(2); //добавляем в объект текущую дистанцию
   }
-};
-
-/* ВЫЗОВ ИНТРО И ФЕТЧА ПРИ ЗАГРУЗКЕ СТРАНИЦЫ */
-window.onload = function () {
-  download(); //трехсекундный загрузчик, чтобы закинуть все картинки в кэш
-  setTimeout(() => introCreation(), 3000);
-  setTimeout(() => getData(), 9500);
 };

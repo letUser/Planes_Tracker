@@ -29,7 +29,7 @@ function downloadAnim() {
             delay: 500
         }],
         rotate: {
-            value: -1000,
+            value: 1000,
             duration: 5000,
         },
         easing: 'easeInOutCirc'

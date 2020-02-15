@@ -1,11 +1,22 @@
 import "./styles.css";
 import {
-  list
+  list,
+  getData
 } from "./logic.js";
 import {
   logoAnim,
   downloadAnim
 } from "./animation.js";
+import {
+  introCreation
+} from "./intro";
+
+
+
+window.onload = function () {
+  //download(); //загрузчик, чтобы закинуть все картинки в кэш
+  introCreation();
+};
 
 /* ШАПКА ТАБЛИЦЫ */
 let headerTable = [
@@ -31,7 +42,7 @@ let download = () => {
   div.append(img);
 
   downloadAnim();
-  setTimeout(() => div.remove(), 3000);
+  // 'main.js'.onload = div.remove();
 }
 
 /* СОЗДАЕМ HEADER */
