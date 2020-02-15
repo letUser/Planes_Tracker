@@ -110,6 +110,12 @@ select {
   background-color: #cde7e7;
 }
 
+.alert {
+  position: fixed;
+  margin: 0 auto;
+  z-index: 99999999;
+}
+
 .alertBox {
   display: flex-box;
   flex-direction: row;
@@ -131,7 +137,7 @@ select {
   outline: none;
   padding: 0.8em;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.623);
-  left: 8.5em;
+  left: 11em;
 }
 
 .alertBttn:hover {
@@ -144,15 +150,6 @@ select {
   position: relative;
   text-align: center;
   margin-top: 1.5em;
-}
-
-.alertIcon {
-  position: relative;
-  left: 21.8em;
-  top: -5.5em;
-  width: 25px;
-  height: 20px;
-  position: relative;
 }
 
 @media screen and (max-width: 420px) {

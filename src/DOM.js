@@ -4,8 +4,7 @@ import {
   getData
 } from "./logic.js";
 import {
-  logoAnim,
-  alertAnim
+  logoAnim
 } from "./animation.js";
 import {
   introCreation,
@@ -122,7 +121,6 @@ let alertShow = () => {
   let wrapper = document.createElement("div");
   let div = document.createElement("div");
   let bttn = document.createElement("input");
-  let icon = document.createElement("img");
   let text = document.createElement("div");
 
   wrapper.setAttribute("id", "alert");
@@ -132,19 +130,13 @@ let alertShow = () => {
   bttn.setAttribute("value", "Обновить");
   bttn.setAttribute("type", "button");
 
-  icon.classList.add("alertIcon");
-  icon.setAttribute("src", "./img/download.png");
-
   text.classList.add("alertText");
   text.innerHTML = `<p>Интернет соединение потеряно.<br />Попробуйте отправить повторный запрос.</p>`;
 
-  document.body.append(wrapper);
+  document.body.prepend(wrapper);
   wrapper.append(div);
   div.append(text);
-  div.append(icon);
   div.append(bttn);
-
-  alertAnim();
 };
 
 /* УДАЛЯЕМ АЛЕРТ КОННЕКШЕНА */

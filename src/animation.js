@@ -23,23 +23,6 @@ function logoAnim() {
     });
 }
 
-function alertAnim() {
-    anime({
-        targets: ".alertIcon",
-        opacity: {
-            value: 1,
-            duration: 1000,
-        },
-        rotate: {
-            value: 1000,
-            duration: 5000,
-            loop: true,
-        },
-        easing: 'easeInOutCirc'
-    });
-}
-
 export {
-    logoAnim,
-    alertAnim
+    logoAnim
 };
