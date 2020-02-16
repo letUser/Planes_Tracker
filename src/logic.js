@@ -16,28 +16,17 @@ export let list = []; //массив объектов
 /* РЕГИОНЫ */
 export let region = [{
     name: "Москва",
-    coords: `46.84,65.27,23.48,41.48`,
-    selectedRegion: false
+    coords: `56.84,55.27,23.48,41.48`,
   },
   {
-    name: "Берлин",
-    coords: `42.52,62.89,3.29,23.41`,
-    selectedRegion: false
-  },
-  {
-    name: "Нью-Йорк",
-    coords: `30.71,50.71,-64.00,-84.00`,
-    selectedRegion: false
-  },
-  {
-    name: "Пекин",
-    coords: `29.90,49.90,106.39,126.39`,
-    selectedRegion: false
+    name: "Мир",
+    coords: ``
   }
 ];
 
 /* ОБЪЯВЛЯЕМ URL */
-let url;
+let url =
+  `https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=56.84,55.27,23.48,41.48`;
 
 /* ФУНКЦИЯ ВЫБОРА РЕГИОНА */
 function regionSelector(coords) {
@@ -78,7 +67,7 @@ let takeData = data => {
 
   distanceCalc(); //считаем дистацию объектов
 
-  list.sort((a, b) => a.distance - b.distance); //сортируем по дистанции от аэропорта
+  list.sort((a, b) => a.distance - b.distance); //сортируем по дистанции от Москвы
 
   if (document.getElementById("alert")) deleteAlert();
   //проверка наличия окна об ошибке
@@ -97,11 +86,11 @@ let distanceCalc = () => {
       coordsPlane.splice(i, 1, +str); //вставляем как число
     }
 
-    let cosS = ((Math.sin(city.World.coordX) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
-      (Math.cos(city.World.coordX) * Math.cos(coordsPlane[0])) *
-      Math.cos(coordsPlane[1] - city.World.coordY));
+    let cosS = ((Math.sin(55.410) * Math.sin(coordsPlane[0])) + //считаем S в угловой мере
+      (Math.cos(55.410) * Math.cos(coordsPlane[0])) *
+      Math.cos(coordsPlane[1] - 37.902));
     let acosS = Math.acos(cosS);
     let distance = acosS * 111.3; //умножаем на мередиану
-    list[i].distance = +distance.toFixed(2); //добавляем в объект текущую дистанцию
+    list[i].distance = +distance.toFixed(2); //добавляем в объект текущую дистанцию от МСК
   }
 };

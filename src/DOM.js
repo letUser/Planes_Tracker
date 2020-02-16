@@ -32,7 +32,7 @@ let headerTable = [
 /* СОЗДАЕМ HEADER */
 function headerCreation() {
 
-  const cities = ["Москва", "Берлин", "Нью-Йорк", "Пекин"];
+  const cities = ["Москва", "Мир"];
 
   let div = document.createElement("div");
   let navBar = document.createElement("div");
@@ -69,16 +69,6 @@ function headerCreation() {
     nav.append(city);
   }
 
-  nav.onchange = function () {
-    let name = this.value;
-
-    for (let city of region) {
-      if (name === city.name) {
-        regionSelector(city.coords);
-      }
-    }
-  };
-
   document.body.prepend(div);
   div.append(navBar);
   div.append(img);
@@ -88,6 +78,16 @@ function headerCreation() {
   setTimeout(() => getData(), 8000);
   /* хедер появляется при запуске интро, поэтому внезависимости от скорости интернета
      будет пройдено именно заявленное в таймауте время. */
+
+  nav.onchange = function () {
+    let name = this.value;
+
+    for (let city of region) {
+      if (name === city.name) {
+        regionSelector(city.coords);
+      }
+    }
+  };
 }
 
 /* ФУНКЦИЯ СОЗДАНИЯ ДОМа */
