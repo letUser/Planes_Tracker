@@ -1,7 +1,9 @@
 import "./styles.css";
 import {
   list,
-  getData
+  getData,
+  regionSelector,
+  region
 } from "./logic.js";
 import {
   logoAnim
@@ -29,7 +31,8 @@ let headerTable = [
 
 /* СОЗДАЕМ HEADER */
 function headerCreation() {
-  const cities = ["Мир", "Москва", "Берлин", "Нью-Йорк", "Пекин"];
+
+  const cities = ["Москва", "Берлин", "Нью-Йорк", "Пекин"];
 
   let div = document.createElement("div");
   let navBar = document.createElement("div");
@@ -65,6 +68,16 @@ function headerCreation() {
 
     nav.append(city);
   }
+
+  nav.onchange = function () {
+    let name = this.value;
+
+    for (let city of region) {
+      if (name === city.name) {
+        regionSelector(city.coords);
+      }
+    }
+  };
 
   document.body.prepend(div);
   div.append(navBar);

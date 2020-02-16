@@ -2,43 +2,48 @@ import "./styles.css";
 import {
   createTable,
   deleteAlert,
-  alertShow,
+  alertShow
 } from "./DOM.js";
 
 
 export {
-  getData
-};
-
-/* РЕГИОНЫ */
-const city = {
-  World: {
-    coordX: 1,
-    coordY: 1
-  },
-  Moscow: {
-    coordX: (55.410307).toFixed(3),
-    coordY: (37.902451).toFixed(3)
-  },
-  Berlin: {
-    coordX: (52.52437).toFixed(3),
-    coordY: (13.41053).toFixed(3)
-  },
-  NewYork: {
-    coordX: (40.71427).toFixed(3),
-    coordY: (-74.00597).toFixed(3)
-  },
-  Pekin: {
-    coordX: (39.9075).toFixed(3),
-    coordY: (116.39723).toFixed(3)
-  },
+  getData,
+  regionSelector
 };
 
 export let list = []; //массив объектов
 
-/* НАЗНАЧАЕМ URL */
-const url =
-  "https://data-live.flightradar24.com/zones/fcgi/feed.js";
+/* РЕГИОНЫ */
+export let region = [{
+    name: "Москва",
+    coords: `46.84,65.27,23.48,41.48`,
+    selectedRegion: false
+  },
+  {
+    name: "Берлин",
+    coords: `42.52,62.89,3.29,23.41`,
+    selectedRegion: false
+  },
+  {
+    name: "Нью-Йорк",
+    coords: `30.71,50.71,-64.00,-84.00`,
+    selectedRegion: false
+  },
+  {
+    name: "Пекин",
+    coords: `29.90,49.90,106.39,126.39`,
+    selectedRegion: false
+  }
+];
+
+/* ОБЪЯВЛЯЕМ URL */
+let url;
+
+/* ФУНКЦИЯ ВЫБОРА РЕГИОНА */
+function regionSelector(coords) {
+  return (url =
+    `https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=${coords}`);
+}
 
 /* ФУНКЦИЯ ОБРАБОТКИ ФЕТЧА*/
 async function getData() {
