@@ -21,12 +21,12 @@ window.onload = function () {
 
 /* ШАПКА ТАБЛИЦЫ */
 let headerTable = [
-  `Координаты`,
-  `Скорость`,
-  `Курс`,
-  `Высота`,
-  `Маршрут`,
-  `Рейс`
+  `<p>Координаты</p>`,
+  `<p>Скорость</p>`,
+  `<p>Курс</p>`,
+  `<p>Высота</p>`,
+  `<p>Маршрут</p>`,
+  `<p>Рейс</p>`
 ];
 
 /* СОЗДАЕМ HEADER */
@@ -51,7 +51,7 @@ function headerCreation() {
 
   let city = document.createElement("option");
   city.classList.add("disabledOption");
-  city.innerHTML = `<p>Выберите город</p>`;
+  city.innerHTML = `<p>Выберите регион</p>`;
   city.setAttribute("disabled", "true");
 
   nav.prepend(city);
@@ -110,7 +110,7 @@ let createTable = () => {
   /* РИСУЕМ ШАПКУ */
   for (let i = 0; i <= headerTable.length - 1; i++) {
     let th = document.createElement("th");
-    th.innerHTML = `<p>${headerTable[i]}</p>`;
+    th.innerHTML = `${headerTable[i]}`;
     tr.append(th);
   }
 
