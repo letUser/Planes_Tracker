@@ -38,8 +38,11 @@ function regionSelector(coords) {
 async function getData() {
   try {
     let response = await fetch(url);
-    let data = await response.json(); //В URL любезно положили объект, поэтому json
-    takeData(data);
+    let data = await response.json();
+    delete data.full_count;
+    delete data.version; //В URL любезно положили объект, поэтому json
+    console.log(data)
+    takeData(data); 
   } catch (e) {
     alertShow();
     setTimeout(() => getData(), 5000);
@@ -51,7 +54,9 @@ let takeData = data => {
   list.splice(0, list.length); //очищаем массив
 
   /* ПРОХОДИМ ПО МАССИВУ ЗНАЧЕНИЙ И УБИРАЕМ 2 ПЕРВЫХ ЗНАЧЕНИЯ */
-  for (let props of Object.values(data).slice(2)) {
+  for (let props of Object.values(data)) {
+    //console.log(props);
+
     let plane = {
       //объект каждого самолета
       coord: `${props[1].toFixed(3)}°, ${props[2].toFixed(3)}°`,
