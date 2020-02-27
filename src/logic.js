@@ -41,7 +41,6 @@ async function getData() {
     let data = await response.json();
     delete data.full_count;
     delete data.version; //В URL любезно положили объект, поэтому json
-    console.log(data)
     takeData(data); 
   } catch (e) {
     alertShow();
